@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.articleapps">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logoteam"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logoteam"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".thongkevahoadon.Hoadon"></activity>
+        <activity android:name=".thongkevahoadon.thongke" />
+        <activity android:name=".LoginForm.ProfileActivity" />
+        <activity android:name=".ShoppingCart.ShoppingCartActivity" />
+        <activity android:name=".MainMenu.News.NewsActivity" />
+        <activity android:name=".Function.ChatBotMarvel.ChatBot" />
+        <activity android:name=".Function.MusicList.ListenMusic" />
+        <activity android:name=".Function.FingerprintHandler" />
+        <activity android:name=".Function.Qr_scan" />
+        <activity android:name=".MainMenu.MainMenu" />
+        <activity android:name=".TableMenu.TableMenu" />
+        <activity android:name=".FoodTab.MainFood" />
+        <activity android:name=".LoginForm.Activity_Register" />
+        <activity android:name=".LoginForm.Activity_Login" />
+        <activity
+            android:name=".MainMenu.IntroActivity"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:theme="@style/AppTheme.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".pushnoti.notification">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".Function.MusicList.MusicService"
+            android:enabled="true"
+            android:exported="true" />
+    </application>
+
+</manifest>

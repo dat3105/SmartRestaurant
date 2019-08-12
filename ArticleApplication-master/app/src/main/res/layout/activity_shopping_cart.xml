@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ShoppingCart.ShoppingCartActivity">
+
+    <TextView
+        android:id="@+id/giatien"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lv_product"
+        android:layout_alignEnd="@+id/bgHeader"
+        android:layout_marginEnd="219dp"
+        android:layout_marginBottom="1dp"
+        android:text="Tổng tiền: 0 VNĐ"
+        android:textSize="18sp"
+        tools:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_marginLeft="240dp"
+        android:layout_above="@+id/lv_product"
+        android:text="Thanh Toán" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/bgHeader"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@drawable/header"
+        android:contentDescription="header" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="67dp"
+        android:layout_height="93dp"
+        android:layout_alignTop="@+id/bgHeader"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="14dp"
+        android:layout_toStartOf="@+id/textView"
+        app:srcCompat="@drawable/icguide" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lv_product"
+        android:layout_alignEnd="@+id/bgHeader"
+        android:layout_marginEnd="208dp"
+        android:layout_marginBottom="120dp"
+        android:text="Giỏ hàng"
+        android:textColor="@color/colorWhite"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/lv_product"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/bgHeader"
+        android:layout_marginTop="-1dp" >
+
+    </ListView>
+
+
+</RelativeLayout>

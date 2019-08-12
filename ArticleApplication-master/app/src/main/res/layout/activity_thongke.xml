@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".thongkevahoadon.thongke">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="0dp"
+        android:layout_height="718dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/headerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/reports_header_bk"
+                android:paddingLeft="20dp"
+                android:paddingTop="60dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:id="@+id/dateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:text="01 April 2017 to 01 April 2019"
+                    android:textColor="@color/whiteTextColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="27dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_dropdown_arrow" />
+
+                <TextView
+                    android:id="@+id/salesHeaderTextView"
+                    style="@style/reportContentText"
+                    android:layout_marginTop="30dp"
+                    android:text="Total Sale" />
+
+                <TextView
+                    style="@style/viewParent.headerText"
+                    android:layout_below="@id/salesHeaderTextView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="70dp"
+                    android:text="$15,990.00"
+                    android:textColor="@color/whiteTextColor" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/cardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/headerLayout"
+                android:layout_marginTop="-80dp">
+
+                <android.support.v7.widget.CardView
+                    style="@style/reportsCardStyle"
+                    app:cardBackgroundColor="@color/whiteTextColor"
+                    app:cardCornerRadius="16dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/reportContentText"
+                            android:text="This Month"
+                            android:textColor="#79D0A3" />
+
+                        <TextView
+                            style="@style/viewParent.headerText"
+                            android:text="$5,990.00"
+                            android:textSize="27sp" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    style="@style/reportsCardStyle"
+                    app:cardBackgroundColor="@color/whiteTextColor"
+                    app:cardCornerRadius="16dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/reportContentText"
+                            android:text="This Week"
+                            android:textColor="#79D0A3" />
+
+                        <TextView
+                            style="@style/viewParent.headerText"
+                            android:text="$200.00"
+                            android:textSize="27sp" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardLayout"
+                android:orientation="vertical">
+
+                <include layout="@layout/card_sales" />
+
+                <include layout="@layout/card_sales" />
+
+                <include layout="@layout/card_sales" />
+
+                <include layout="@layout/card_sales" />
+
+                <include layout="@layout/card_sales" />
+
+                <include layout="@layout/card_sales" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.constraint.ConstraintLayout>
