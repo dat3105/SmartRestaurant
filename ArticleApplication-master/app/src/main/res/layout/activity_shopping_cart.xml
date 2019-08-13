@@ -13,18 +13,50 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/lv_product"
         android:layout_alignEnd="@+id/bgHeader"
-        android:layout_marginEnd="219dp"
-        android:layout_marginBottom="1dp"
-        android:text="Tổng tiền: 0 VNĐ"
+        android:layout_marginEnd="234dp"
+        android:layout_marginBottom="-1dp"
+        android:text="0000000"
         android:textSize="18sp"
         tools:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/giatien1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lv_product"
+        android:layout_alignLeft="@+id/giatien"
+        android:layout_alignEnd="@+id/bgHeader"
+        android:layout_marginLeft="-74dp"
+        android:layout_marginEnd="323dp"
+        android:layout_marginRight="@dimen/_100sdp"
+        android:layout_marginBottom="-1dp"
+        android:text="Giá tiền:"
+        android:textSize="18sp"
+        tools:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/giatien2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lv_product"
+        android:layout_alignEnd="@+id/bgHeader"
+        android:layout_alignRight="@+id/giatien"
+        android:layout_marginLeft="-132dp"
+        android:layout_marginEnd="193dp"
+        android:layout_marginRight="-76dp"
+        android:layout_marginBottom="1dp"
+        android:text="VNĐ"
+        android:textSize="18sp"
+        tools:textStyle="bold" />
+
 
     <Button
         android:id="@+id/btnSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-       android:layout_marginLeft="240dp"
         android:layout_above="@+id/lv_product"
+        android:layout_marginLeft="240dp"
+        android:layout_marginBottom="-1dp"
         android:text="Thanh Toán" />
 
     <android.support.v7.widget.Toolbar

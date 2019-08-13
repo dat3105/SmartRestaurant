@@ -29,6 +29,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 import static com.example.articleapps.AdapterFoodDrink.AdapterDessert.giohangdoan;
+import static com.example.articleapps.FoodTab.MainFood.sl;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,8 +67,20 @@ AdapterPopularDessert madapter2;
                             public void OnClick() {
                                 Toast.makeText(getContext(), "Ok", Toast.LENGTH_SHORT).show();
                                 String url=(new StringBuilder()).append("https://smartrestaurantntd.herokuapp.com").append(rootObject.getData().get(position).getImage()).toString();
-                                GioHang giohang=new GioHang(4,"Panna Cotta",130000,url);
-                                giohangdoan.add(giohang);
+                                boolean a=false;
+
+                                for(int i=0;i<giohangdoan.size();i++){
+                                    if(giohangdoan.get(i).getId()==4){
+                                        a=true;
+                                    }
+                                }
+                                if(a==true){
+                                    Toast.makeText(getActivity(), "mon an da duoc dat", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    GioHang giohang = new GioHang(4, "Panna Cotta", 130000, url, 1);
+                                    giohangdoan.add(giohang);
+                                    sl.setText(giohangdoan.size() + "");
+                                }
                             }
                         })
                         .OnNegativeClicked(new TTFancyGifDialogListener() {
@@ -93,8 +106,20 @@ AdapterPopularDessert madapter2;
                             public void OnClick() {
                                 Toast.makeText(getContext(), "Ok", Toast.LENGTH_SHORT).show();
                                 String url=(new StringBuilder()).append("https://smartrestaurantntd.herokuapp.com").append(rootObject.getData().get(position).getImage()).toString();
-                                GioHang giohang=new GioHang(5,"Semifreddo",145000,url);
-                                giohangdoan.add(giohang);
+                                boolean a=false;
+
+                                for(int i=0;i<giohangdoan.size();i++){
+                                    if(giohangdoan.get(i).getId()==5){
+                                        a=true;
+                                    }
+                                }
+                                if(a==true){
+                                    Toast.makeText(getActivity(), "mon an da duoc dat", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    GioHang giohang = new GioHang(5, "Semifreddo", 145000, url, 1);
+                                    giohangdoan.add(giohang);
+                                    sl.setText(giohangdoan.size() + "");
+                                }
                             }
                         })
                         .OnNegativeClicked(new TTFancyGifDialogListener() {

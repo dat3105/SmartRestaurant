@@ -1,20 +1,16 @@
-package com.example.articleapps.Objectt;
+package com.example.articleapps.TableMenu.Model;
 
-public class GioHang {
+public class ban {
     int id;
     String name;
     int price;
-    String img;
-    int sl;
-    public GioHang(){
-
-    }
-    public GioHang(int id, String name,int price,String img,int sl){
+    int img;
+    public ban(){}
+    public ban(int id,String name,int price,int img){
         this.id=id;
         this.name=name;
         this.price=price;
         this.img=img;
-        this.sl=sl;
     }
 
     public int getId() {
@@ -41,19 +37,11 @@ public class GioHang {
         this.price = price;
     }
 
-    public String getImg() {
+    public int getImg() {
         return img;
     }
 
-    public void setImg(String img) {
+    public void setImg(int img) {
         this.img = img;
-    }
-
-    public int getSl() {
-        return sl;
-    }
-
-    public void setSl(int sl) {
-        this.sl = sl;
     }
 }

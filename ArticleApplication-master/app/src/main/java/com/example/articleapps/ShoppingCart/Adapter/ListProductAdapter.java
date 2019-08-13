@@ -47,9 +47,9 @@ public ListProductAdapter(Context c, RootObject rootObject){
     int id ;
     convertView = LayoutInflater.from(c).inflate(R.layout.item_product_list,parent,false);
         ImageView product_thumb = convertView.findViewById(R.id.product_thumb);
-        TextView item_name = convertView.findViewById(R.id.item_name);
+        final TextView item_name = convertView.findViewById(R.id.item_name);
         final TextView item_price = convertView.findViewById(R.id.item_price);
-        TextView remove_item=convertView.findViewById(R.id.remove_item);
+        final TextView remove_item=convertView.findViewById(R.id.remove_item);
         TextView add_item=convertView.findViewById(R.id.add_item);
         final TextView item_amount=convertView.findViewById(R.id.item_amount);
 //        id=rootObject.getData().get(position).getId();
@@ -58,54 +58,67 @@ public ListProductAdapter(Context c, RootObject rootObject){
 
             item_name.setText(giohangdoan.get(position).getName());
             item_price.setText(giohangdoan.get(position).getPrice()+"");
-
+            item_amount.setText(giohangdoan.get(position).getSl()+"");
 
             Picasso.get()
                     .load(giohangdoan.get(position).getImg())
                     .into(product_thumb);
 
 
-//         {
-//            item_name.setText(rootObject.getData().get(position).getFoodName());
-//            item_price.setText(rootObject.getData().get(position).getPrice());
-//            String URL = (new StringBuilder()).append("https://smartrestaurantntd.herokuapp.com").append(rootObject.getData().get(position).getImage()).toString();
-//            Picasso.get()
-//                    .load(URL)
-//                    .into(product_thumb);
-//        }
+//
 
-        try{
-            tongtien=Integer.parseInt(giohang.get("ban"));
-        }catch (Exception e){
 
-        }
+
+            tongtien=giohang.get(0).getPrice();
+
         final int[] tongtien1 = {tongtien};
 //        final int[] count = {0};
         for(int i=0;i<giohangdoan.size();i++){
              tongtien1[0] = tongtien1[0]+giohangdoan.get(i).getPrice();
         }
-        tinhtien.setText("tong tien: "+ tongtien1[0]);
+        tinhtien.setText( tongtien1[0]+"");
 
-//        add_item.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                count[0] = count[0] + 1;
-//                item_amount.setText(count[0]+"");
-//                tongtien+=Integer.parseInt(item_price.getText().toString());
-//                tinhtien.setText("tong tien: "+tongtien);
-//                Toast.makeText(c, ""+position, Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
+        add_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int id=0;
+                for(int i=0;i<giohangdoan.size();i++){
+                    if(giohangdoan.get(i).getName().equalsIgnoreCase(item_name.getText().toString())){
+                        id=i;
+                        break;
+                    }
+                }
+                giohangdoan.get(id).setSl(giohangdoan.get(id).getSl()+1);
+                item_amount.setText(giohangdoan.get(id).getSl()+"");
+                tinhtien.setText((tongtien1[0]+=giohangdoan.get(id).getPrice())+"");
+
+            }
+        });
+
         remove_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    giohangdoan.remove(position);
-                    tongtien1[0] =tongtien;
+                int id=0;
                 for(int i=0;i<giohangdoan.size();i++){
-                    tongtien1[0]+=giohangdoan.get(i).getPrice();
+                    if(giohangdoan.get(i).getName().equalsIgnoreCase(item_name.getText().toString())){
+                        id=i;
+                        break;
+                    }
                 }
-                    tinhtien.setText("tong tien: "+tongtien1[0]);
-                Toast.makeText(c, ""+position, Toast.LENGTH_SHORT).show();
+                if(giohangdoan.get(id).getSl()==0){
+                    tinhtien.setText(""+(tongtien1[0]));
+                    giohangdoan.remove(giohangdoan.get(id));
+                    notifyDataSetChanged();
+
+                }
+                else{
+
+                    giohangdoan.get(id).setSl(giohangdoan.get(id).getSl()-1);
+                    item_amount.setText(giohangdoan.get(id).getSl()+"");
+                    tinhtien.setText((tongtien1[0]-=giohangdoan.get(id).getPrice())+"");
+                    Toast.makeText(c, giohangdoan.get(id).getSl()+"", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         return convertView;

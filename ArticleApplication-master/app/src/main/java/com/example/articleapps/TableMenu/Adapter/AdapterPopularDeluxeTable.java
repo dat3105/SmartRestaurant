@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.articleapps.R;
 import com.example.articleapps.TableMenu.Model.DataPopularDeluxeTable;
+import com.example.articleapps.TableMenu.Model.ban;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +21,7 @@ public class AdapterPopularDeluxeTable extends RecyclerView.Adapter<AdapterPopul
     List<DataPopularDeluxeTable> tableList;
     Context context;
     private View.OnClickListener mOnItemClickListener;
-    public static HashMap<String,String> giohang=new HashMap<>();
+    public static ArrayList<ban> giohang=new ArrayList<>();
 
     public AdapterPopularDeluxeTable(ArrayList<DataPopularDeluxeTable> tableList, Context context) {
         this.tableList = tableList;

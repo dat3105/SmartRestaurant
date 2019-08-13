@@ -22,6 +22,8 @@ import com.example.articleapps.TableMenu.Fragment.DeluxeTableFragment;
 
 import java.util.ArrayList;
 
+import static com.example.articleapps.AdapterFoodDrink.AdapterDessert.giohangdoan;
+
 
 public class MainFood extends AppCompatActivity {
 
@@ -30,7 +32,7 @@ public class MainFood extends AppCompatActivity {
     TabLayout tabMenu;
     ViewPager viewPager;
     ImageView img_cart;
-
+    public static TextView sl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,17 +42,22 @@ public class MainFood extends AppCompatActivity {
         viewPager   = findViewById(R.id.viewPager);
         footer = findViewById(R.id.include_cart);
         img_cart= footer.findViewById(R.id.img_cart);
+        sl=footer.findViewById(R.id.item_count);
         img_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainFood.this, ShoppingCartActivity.class);
-                startActivity(i);
+                if(giohangdoan.isEmpty()){
+                    Toast.makeText(MainFood.this, "Bạn chưa chọn đồ ăn", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent i = new Intent(MainFood.this, ShoppingCartActivity.class);
+                    startActivity(i);
+                }
             }
         });
         setupViewPager(viewPager);
         tabMenu.setupWithViewPager(viewPager);
         viewPager.setCurrentItem(1);  // 0 = drink , 1=food
-
+        sl.setText(giohangdoan.size()+"");
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());

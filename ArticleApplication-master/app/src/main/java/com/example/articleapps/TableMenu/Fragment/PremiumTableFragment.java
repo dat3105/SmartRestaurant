@@ -16,6 +16,7 @@ import com.example.articleapps.TableMenu.Model.DataDeluxeTable;
 import com.example.articleapps.TableMenu.Model.DataPopularDeluxeTable;
 import com.example.articleapps.TableMenu.Model.DataPopularPremiumTable;
 import com.example.articleapps.TableMenu.Model.DataPremiumTable;
+import com.example.articleapps.TableMenu.Model.ban;
 
 import java.util.ArrayList;
 
@@ -27,8 +28,7 @@ RecyclerView rvPopularPremiumTable;
 RecyclerView rvPremiumTable;
 AdapterPopularPremiumTable adapterPopularPremiumTable;
 AdapterPremiumTable adapterPremiumTable;
-String tabletitle[] = {"Bàn số 1","Bàn số 2","Bàn số 3","Bàn số 4","Bàn số 5"};
-String price[]={"5000","6000","7000","8000","9000"};
+   public static ArrayList<ban> dsban=new ArrayList<>();
 
     int img[]={R.drawable.table3,R.drawable.table3,R.drawable.table4,R.drawable.table3,R.drawable.table2};
 
@@ -44,6 +44,13 @@ String price[]={"5000","6000","7000","8000","9000"};
         View v = inflater.inflate(R.layout.fragment_premium_table, container, false);
         rvPremiumTable = v.findViewById(R.id.rvPremiumTable);
         rvPopularPremiumTable = v.findViewById(R.id.rvPopularPremiumTable);
+        ban ban=new ban(4,"Bàn số 3 luxury",1500000,R.drawable.table3);
+
+        ban ban1=new ban(5,"Queen size table",2500000,R.drawable.table4);
+        ban ban2=new ban(6,"King size table",3000000,R.drawable.table4);
+        dsban.add(ban);
+        dsban.add(ban1);
+        dsban.add(ban2);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
         rvPopularPremiumTable.setLayoutManager(layoutManager);
@@ -62,22 +69,22 @@ String price[]={"5000","6000","7000","8000","9000"};
     }
     private ArrayList<DataPremiumTable> getDataPremium() {
         ArrayList<DataPremiumTable> dataTable = new ArrayList<>();
-        for (int i = 0; i<tabletitle.length;i++){
+        for (int i = 0; i<dsban.size();i++){
             DataPremiumTable table = new DataPremiumTable();
-            table.setTitle(tabletitle[i]);
-            table.setPrice(price[i]);
-            table.setImg(img[i]);
+            table.setTitle(dsban.get(i).getName());
+            table.setPrice(dsban.get(i).getPrice()+"");
+            table.setImg(dsban.get(i).getImg());
             dataTable.add(table);
         }
         return dataTable;
     }
     private ArrayList<DataPopularPremiumTable> getDataPopularPremium() {
         ArrayList<DataPopularPremiumTable> dataTable = new ArrayList<>();
-        for (int i = 0; i<tabletitle.length;i++){
+        for (int i = 0; i<dsban.size();i++){
             DataPopularPremiumTable table = new DataPopularPremiumTable();
-            table.setTitle(tabletitle[i]);
-            table.setPrice(price[i]);
-            table.setImg(img[i]);
+            table.setTitle(dsban.get(i).getName());
+            table.setPrice(dsban.get(i).getPrice()+"");
+            table.setImg(dsban.get(i).getImg());
             dataTable.add(table);
         }
         return dataTable;

@@ -14,19 +14,24 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.articleapps.FoodTab.MainFood;
 import com.example.articleapps.R;
 import com.example.articleapps.ShoppingCart.ShoppingCartActivity;
 import com.example.articleapps.TableMenu.Model.DataDeluxeTable;
+import com.example.articleapps.TableMenu.Model.ban;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import static com.example.articleapps.TableMenu.Adapter.AdapterPopularDeluxeTable.giohang;
+import static com.example.articleapps.TableMenu.Fragment.DeluxeTableFragment.dsbansang;
+import static com.example.articleapps.TableMenu.Fragment.PremiumTableFragment.dsban;
 
 public class AdapterDeluxeTable extends RecyclerView.Adapter<AdapterDeluxeTable.ViewHolder> {
     List<DataDeluxeTable> tableList;
@@ -128,12 +133,21 @@ public class AdapterDeluxeTable extends RecyclerView.Adapter<AdapterDeluxeTable.
             deluxe_table_button_buy.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent i = new Intent(itemView.getContext(), ShoppingCartActivity.class);
-//                    v.getContext().startActivity(i);
-//                    insertProductToCart();
-//                     giohang = new HashMap<>();
-//                    giohang.put("ban",deluxe_table_price.getText().toString());
 
+                    insertProductToCart();
+                     giohang = new ArrayList<>();
+                    ban bands=new ban();
+
+                    for(int j=0;j<dsbansang.size();j++){
+                        if(dsbansang.get(j).getName().equalsIgnoreCase(deluxe_table_title.getText().toString())){
+                            bands=dsbansang.get(j);
+                        }
+                    }
+                    giohang.add(bands);
+
+
+                    Intent i = new Intent(itemView.getContext(), MainFood.class);
+                    v.getContext().startActivity(i);
                 }
             });
         }

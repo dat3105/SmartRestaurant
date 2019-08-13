@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.articleapps.AdapterFoodDrink.AdapterDessert.giohangdoan;
+import static com.example.articleapps.FoodTab.MainFood.sl;
 
 
 /**
@@ -45,6 +46,7 @@ public class AppetizerFragment extends Fragment {
     AdapterPopularFood mAdapter;
     AdapterMoreFood mAdapter2;
     private final String Link_JSON = "https://smartrestaurantntd.herokuapp.com/api/Food/getFoodByType?type=1";
+
     private View.OnClickListener onItemClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -71,8 +73,20 @@ public class AppetizerFragment extends Fragment {
                             public void OnClick() {
                                 Toast.makeText(getContext(), "Bạn đã đặt món", Toast.LENGTH_SHORT).show();
                                 String url=(new StringBuilder()).append("https://smartrestaurantntd.herokuapp.com").append(rootObject.getData().get(0).getImage()).toString();
-                                GioHang giohang=new GioHang(0,"Mì xào hải sản",80000,url);
-                                giohangdoan.add(giohang);
+                                    boolean a=false;
+
+                                for(int i=0;i<giohangdoan.size();i++){
+                                    if(giohangdoan.get(i).getId()==0){
+                                        a=true;
+                                    }
+                                }
+                                if(a==true){
+                                    Toast.makeText(getActivity(), "mon an da duoc dat", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    GioHang giohang = new GioHang(0, "Mì xào hải sản", 80000, url, 1);
+                                    giohangdoan.add(giohang);
+                                    sl.setText(giohangdoan.size() + "");
+                                }
                             }
                         })
                         .OnNegativeClicked(new TTFancyGifDialogListener() {
@@ -97,8 +111,20 @@ public class AppetizerFragment extends Fragment {
                             public void OnClick() {
                                 Toast.makeText(getContext(), "Bạn đã đặt món", Toast.LENGTH_SHORT).show();
                                 String url=(new StringBuilder()).append("https://smartrestaurantntd.herokuapp.com").append(rootObject.getData().get(1).getImage()).toString();
-                                GioHang giohang=new GioHang(1,"Sườn xào chua ngọt",150000,url);
-                                giohangdoan.add(giohang);
+                                boolean a=false;
+
+                                for(int i=0;i<giohangdoan.size();i++){
+                                    if(giohangdoan.get(i).getId()==1){
+                                        a=true;
+                                    }
+                                }
+                                if(a==true){
+                                    Toast.makeText(getActivity(), "mon an da duoc dat", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    GioHang giohang = new GioHang(1, "Sườn xào chua ngọt", 150000, url, 1);
+                                    giohangdoan.add(giohang);
+                                    sl.setText(giohangdoan.size() + "");
+                                }
                             }
                         })
                         .OnNegativeClicked(new TTFancyGifDialogListener() {
